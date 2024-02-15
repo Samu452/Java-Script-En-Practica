@@ -1,0 +1,41 @@
+document.getElementById("formulario").addEventListener("submit", function (event) {
+    event.preventDefault();
+    
+
+    const nombreInput = document.getElementById("nombre");
+    const asuntoInput = document.getElementById("asunto");
+    const mensajeInput = document.getElementById("mensaje");
+
+    const errorNombre = document.querySelector(".errorNombre");
+    const errorAsunto = document.querySelector(".errorAsunto");
+    const errorMensaje = document.querySelector(".errorMensaje");
+
+
+    if (nombreInput.value.trim() === "") {
+      errorNombre.textContent = "ingresa tu nombre.";
+    } else {
+      errorNombre.textContent = "";
+    }
+
+    if (asuntoInput.value.trim() === "") {
+      errorAsunto.textContent = "ingresa el asunto.";
+    } else {
+      errorAsunto.textContent = "";
+    }
+    if (mensajeInput.value.trim() === "") {
+      errorMensaje.textContent = "ingresa tu mensaje.";
+    } else {
+      errorMensaje.textContent = "";
+    }
+    if (
+      errorNombre.textContent === "" &&
+      errorAsunto.textContent === "" &&
+      errorMensaje.textContent === ""
+    ) {
+    
+      document.querySelector(".resultado").textContent =
+        "Mensaje enviado con exito.";
+    } else {
+      document.querySelector(".resultado").textContent = "";
+    }
+  });
